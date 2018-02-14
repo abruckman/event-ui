@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import $ from 'jquery'
+import axios from 'axios'
+import EventCard from './EventCard'
 
 class Index extends Component {
 
@@ -10,29 +11,35 @@ class Index extends Component {
     }
     this.getEvents = this.getEvents.bind(this)
   }
-
   getEvents(){
-    $.ajax({
-      url: "http://localhost:3000/api/events",
-      type: "GET",
-      context: this,
-      success: function(result){
-        this.setstate({events: result})
-      }
+
+    axios.get('http://localhost:3000/api/events')
+    .then( res => {
+      console.log(res.data)
+      this.setState({events:res.data})
     })
   }
 
-  render(){
+  componentDidMount(){
     this.getEvents()
+  }
+
+
+
+
+  render(){
+
+    // const Events = this.state.events.map((event)=>{
+    //   return(<p>{event.name}</p>)
+    // })c
+    console.log(this.state.events)
     return (
       <div>
-      {this.props.events.map((event)=>{
-        return(
-            <p>{event.name}</p>
-          )
-        })
-      }
-    </div>
+        <p>hey there!</p>
+        {this.state.events.map((event)=>{
+          return(<EventCard event={event} />)
+        })}
+      </div>
     )
   }
 
