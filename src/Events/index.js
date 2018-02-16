@@ -40,7 +40,7 @@ class Index extends Component {
         <GridList>
         <p>hey there!</p>
         {this.state.events.map((event)=>{
-          return(<EventCard event={event} />)
+          return(<EventCard key={event.id} event={event} />)
         })}
         </GridList>
       </div>

@@ -10,20 +10,24 @@ class EventCard extends Component {
     this.state = {}
   }
 
+
   render(){
+    let event = this.props.event
+
     return(
       <div>
         <GridTile
-        <p>-------------------</p>
-        <h3>{this.props.event.name}</h3>
-        <p>{this.props.event.date_start}</p>
+          title={event.name}
+          subtitle={event.date_start}>
+          <img src="dog.jpeg"/>
+        </GridTile>
       </div>
     )
   }
 
 }
 
-EventCard.PropTypes = {
+EventCard.propTypes = {
   event: PropTypes.object
 }
 
