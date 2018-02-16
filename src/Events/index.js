@@ -1,6 +1,8 @@
-import React, {Component} from 'react'
-import axios from 'axios'
-import EventCard from './EventCard'
+import React, {Component} from 'react';
+import axios from 'axios';
+import EventCard from './EventCard';
+import {GridList, GridTile} from 'material-ui/GridList';
+
 
 class Index extends Component {
 
@@ -35,10 +37,12 @@ class Index extends Component {
     console.log(this.state.events)
     return (
       <div>
+        <GridList>
         <p>hey there!</p>
         {this.state.events.map((event)=>{
-          return(<EventCard event={event} />)
+          return(<EventCard key={event.id} event={event} />)
         })}
+        </GridList>
       </div>
     )
   }

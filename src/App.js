@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import Index from './Events'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Index />
-      </div>
+      <MuiThemeProvider>
+        <div className="App">
+          <Index />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

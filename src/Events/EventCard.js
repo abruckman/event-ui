@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import {GridList, GridTile} from 'material-ui/GridList';
+
 
 class EventCard extends Component {
 
@@ -8,18 +10,24 @@ class EventCard extends Component {
     this.state = {}
   }
 
+
   render(){
+    let event = this.props.event
+
     return(
       <div>
-        <p>-------------------</p>
-        <h3>{this.props.event.name}</h3>
+        <GridTile
+          title={event.name}
+          subtitle={event.date_start}>
+          <img src="dog.jpeg"/>
+        </GridTile>
       </div>
     )
   }
 
 }
 
-EventCard.PropTypes = {
+EventCard.propTypes = {
   event: PropTypes.object
 }
 
